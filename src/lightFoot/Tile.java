@@ -16,6 +16,10 @@ public class Tile extends JPanel {
 		this.index = index;
 	}
 	
+	public Index2D getIndex() {
+		return index;
+	}
+
 	public boolean addPanel(JPanel panel) {
 		if(!isEmpty()) return false;
 		else {
