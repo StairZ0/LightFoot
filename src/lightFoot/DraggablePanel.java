@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
+import net.miginfocom.swing.MigLayout;
+
 
 public class DraggablePanel extends JPanel {
 	
@@ -23,6 +25,10 @@ public class DraggablePanel extends JPanel {
 	
 	public boolean isFull(){
 		return !(nTile < nMaxTile);
+	}
+	
+	public void receive(JPanel panel, Pixel pixel){
+		
 	}
 	
 	
