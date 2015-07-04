@@ -10,6 +10,7 @@ import net.miginfocom.swing.MigLayout;
 
 public class DraggablePanel extends JPanel {
 	
+	
 	private HashMap<Index2D, Tile> hashTile;
 	private int nMaxTile;
 	private int nTileFilled;
@@ -19,6 +20,7 @@ public class DraggablePanel extends JPanel {
 		
 		setLayout(new MigLayout("wrap "+width));
 		hashTile = new HashMap<Index2D, Tile>();
+		initializeHashTile(width,height);
 		nMaxTile = width*height;
 		nTileFilled = 0;
 		contPane = cPane;
@@ -33,7 +35,11 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	public void receive(JPanel panel, Pixel pixel){
-		
+		Tile t = pixelToTile(pixel);
+		if(t.isEmpty()){
+			t.addPanel(panel);
+			nTileFilled++;
+		}
 	}
 	
 	public boolean addPanel(JPanel panel){
@@ -49,7 +55,12 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	public void fireMousePressedEvent(Pixel pixel){
-		
+		Tile t = pixelToTile(pixel);
+		if(!t.isEmpty()){
+			contPane.sendToTransparentPanel(t.getContent(), pixel);
+			t.addPanel(null);
+			nTileFilled--;
+		}
 	}
 	
 	
@@ -60,8 +71,13 @@ public class DraggablePanel extends JPanel {
 		hashTile.get(ij).addPanel(panel);
 		nTileFilled++;
 		return true;
-	
 	}
+	
+/**
+ * Private Method : firstTileFillable()
+ * @return Tile
+ * return the first tile which can filled
+ */
 	
 	private Tile firstTileFillable(){
 		for(Tile t : hashTile.values()){
@@ -73,8 +89,31 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	
+/**
+ * Private Method : pixelToTile
+ * @param pixel
+ * @return Tile
+ * Check in which tile the click has been done
+ * return the tile if there's a panel in it.
+ */
+	private Tile pixelToTile(Pixel pixel){
+		for(Tile t : hashTile.values()){
+			if(t.contain(pixel)){
+				return t;
+			}
+		}
+		return null;
+	}
 	
-	
+	private void initializeHashTile(int width, int height){
+		Index2D ij = new Index2D(0,0);
+		for(int i = 0; i < height ; i++){
+			for(int j = 0; j < width; j++){
+				ij.setIJ(i, j);
+				hashTile.put(ij,new Tile(ij));
+			}
+		}
+	}
 	
 	
 }
