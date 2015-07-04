@@ -4,9 +4,17 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
+import utils.Index2D;
+
 public class Tile extends JPanel {
 	
 	private JPanel content;
+	private Index2D index;
+	
+	public Tile(JPanel content, Index2D index) {
+		this.content = content;
+		this.index = index;
+	}
 	
 	public boolean addPanel(JPanel panel) {
 		if(!isEmpty()) return false;
