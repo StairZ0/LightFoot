@@ -40,6 +40,11 @@ public class DraggablePanel extends JPanel {
 			t.addPanel(panel);
 			nTileFilled++;
 		}
+		else{
+			t = pixelToTile(contPane.getLastPixelPosition());
+			t.addPanel(panel);
+			nTileFilled++;
+		}
 	}
 	
 	public boolean addPanel(JPanel panel){
