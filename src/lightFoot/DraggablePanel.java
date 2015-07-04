@@ -12,13 +12,15 @@ public class DraggablePanel extends JPanel {
 	private HashMap<Pixel, Tile> hashTile;
 	private int nMaxTile;
 	private int nTile;
+	private ContainerPanel contPane;
 	
-	public DraggablePanel(int width, int height){
+	public DraggablePanel(ContainerPanel cPane, int width, int height){
 		
 		setLayout(new MigLayout("wrap "+width));
 		hashTile = new HashMap<Pixel, Tile>();
 		nMaxTile = width*height;
 		nTile = 0;
+		contPane = cPane;
 	}
 	
 	
@@ -28,6 +30,10 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	public void receive(JPanel panel, Pixel pixel){
+		
+	}
+	
+	public boolean addPanel(JPanel panel){
 		
 	}
 	
