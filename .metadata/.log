@@ -1,0 +1,119 @@
+!SESSION 2015-07-04 22:33:32.271 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data C:\Users\hp\Documents\GitHub\LightFoot -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2015-07-04 22:33:38.954
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2015-07-04 22:33:38.954
+!MESSAGE A conflict occurred for ALT+CTRL+P:
+Binding(ALT+CTRL+P,
+	ParameterizedCommand(Command(org.eclipse.m2e.profiles.ui.commands.selectMavenProfileCommand,Select Maven Profiles,
+		,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4c0930c4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+P,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CreatePatchCommand,Create Patch...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75c0cd39,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.yattasolutions.umllab.ui 4 0 2015-07-04 22:33:53.207
+!MESSAGE No valid license is available.
+!STACK 0
+com.yattasolutions.obf.kh.g: No license found for UML Lab.
+	at 3OZAKRVOS7EZZ6DTVRLZIKY2LLBBMOP3J6SKJ6SEBNMJ5CY6SNFW3DKOHCCEN233ZQPMDNJP32YAESADPHMFRU4TEUJPOVE73TB2XB2QCGVZSEWZAB7ZE2PDI4L4Y7ZJH4TXV66R3NTCOS6KHJH43T24PLUEVVTFQTZQTQTTKA4K7CULGVSF25IPMN2ESJ6OAKJL5E76VS4MCRLZXZF75JMJRMTHBL7PG633T5Q6CXLVA7SWGRJOVG2KNFIXBXJFEB745G3XCZJSW5EN5LHAOT3HLIB22B5QQWCSGE7B433SKKOLZPJUJUTYVGUYJWPRUNSU26V6MNKAHDWE74RU7TJE5TCGWNB3XRENUDM4L4QANCYER54QFDHQ2EG6I3AFNCN3CEIT7SOZLBZSHSFGUPZ2XWQ6MEBPSJA4MFNCQR6VK73M5J74M7IWYQ26HRFWE3BR7UBDM4PSB4L2AKINS3JYG7ZANJO7VO2GSYXW3LB7AFD6PZ2VOGWJ47SKL2C2P6QEAI4CNOW5PHUOSIGEJ3MV2D4TPQ6X64OHB4CAXSVZPEIVWQJTVRHUWKI2EQ22TVKRUBVXKHKECIV6MYY37SHFYUND65RKR5Y245RZOQK2VUGM7I2ZBKHMHCWFB45OMJVX4HLE2RWHDT7INWO7QQ6FRPDD4WWRTAAEMGZRHULRFGJAUX7GB4TTGLNNWEKTMSQNKI6YNN5GYXYWUPU7TP4NUFCJ3WHFCRUHNSIYC2EAJ7WPJFKEJXDHF6UQ7F5HSOXRWGZBK2NMMHJ5L3LIU7TNYF7WQRMPKA7HBMK5OKFFNUBDEZ454R7IP6LL2ZQ76SBSFKPV3MT5KAKOHTBXYPGPCTSETFULIS7POUCPEOWEANCJDJCD7M5YNYJYPKVYBRUHRL3IE6QSHI7RKKUH6UXYTZUA6F3EZXDNOGFHOXFKPWOQFOQKI4CFHZCW4JRTWEGB74QIN57W4ZI4BDHVWI7ISWBTZUT6QWI4OZIM3HGMS5G3GWUU6Z3LCWO5OXLTDJT5F627UC5BTXI42YYKNCUWPELZNNFO2ODWIBO5KDPPO7IEJEQF4GP7T2KS4SZ3YE5XR75KAFCS4ZLGS4Y6TXOSPT3LFFUC6WSA4NEIXD4LHCMFKS3LN3ZW3ZNDZOPNGOZ53UABPO4JD6X7AADJOWPQVEARVTV3YJE23CQ3R6MUPODVJPLLMS45XJEHVPDBU53FHEOTPOEXBQQQU7NIDX6VW44UYTECRK3AAWZH7YS36G6YW6VTCOEXMEIGTZJ3BBCUQGJRHKFCTKQ6AZ4I2WHKMJHIL2EPW46J4ZE3F33S7VU6WDBM5C5UXXHUTJLK3GQ6MZ3TTSQIVFM5R2LGUMII6OJEKHLTVI5VTVXJGQMA34BYRGEG6JCZATYXVMK3ZX3U7UUP5WS6MYMVNE6DFQ7HP4UKTE2TIPGDYWQUTE72PZUN26IJFZTSY4AJJV5IONXVKG7GL6VSE3R7AHV7RBQEFHBKD4OUXSXQUMPP6HP243WG6GOP7C2R4J5OUXUGFITKIVBCUDLUTN22PTDGCSI662EHROFUAJA6T4JET6W4UVKJIDC4XZ6REQ3IS3MNMNBJCJFY3CMX5FLP7OO6UAKLKJV4YZOZUEVEYBBVUQQXRNZN7T3HESVL2SYBFORUN2Q2O76FTJGKGHHONMO4TDE7HOFQRTZMGTXQKD236BULVIHB64QQJJ5XXWRUSVVCNA5MQDSWVXY6ZZN6JZWDLAUIWIAVZJKR2WSRTJTAPWBD5KWLVSHBEGBHJAH6HDZEOR53PS4ZMMNIOLSH7AC3EJB3BM3VNXXBDLCP2I5W7H7ON6HUDYJSVVRCQAJXC7VCMNZO6DO4KSAB6VXZFSIK3FF3KUH2PD7DK7A7DDZPDN6KB4GWKYAFMMHWUZAT2GV6B4P55646RAFPV5E4MMULA33QOJ7OMZWQCBQFGON22EVRVWTWOXHEFO26HHS4BTYRAJ6S43Q6O4EVSSJQXFDL5A5V6ML6TJRFQOPT32I23XRDWX2V2IPUOHJV64S6BW3Z55UT54HFKVNKH7F5Q5ZMHRPXXOYIU3SZ26KQQWWIWIWAFV5GCDUK4OEEWYY35JALGWSWVE422KVI6YO6EH2U5R6DOUJ2NHHXXULN4MUVJRCSQFNFGYXEPQD5H4235OESIJP7CZZV3NAPIFMGZVVXI6Y5MNIEJ5LSLDL42Q7MIWDUGKVRNSKLFHFK5MQNW5XZ5DPMZBIVA5ED3L2YM4XADCTUJRF5FL5X6XDFPM2T5WG76434B3G4APTK26Z36CO3ZGYB277EXSRTJP3GPVCMLZDSTZ2QMRQACSVLC5BOD2DYAJ4CX6HZNKCS54UXC2T2NXBT4DPZIHP5JPJS4UG6T2F3PSU5SQHQJI3MSWTDX6EEJ5W2J2TNG2XAV7W2NRTWO7YMNVOG244HCSYFRAONG22DTJ6645IF5IOGWIGJJTSGAKPC22YT7CJYONXMLZI4WUX3DCHOBZGPWQ3RV4ME5EYXOQZKKTJDLZMYNJPRVHPSVNRFW4QON3MHQPPVYM7UXCEGRDBHT7QCDLPHK3XSUXDNDLMQQGEKFIWCHTNIHWNZZ5I3ZMJV5XDSRCGZBVFRM3FQWO2U3ZCXGXP4E64WY3UC6GSE465NGSUVQ6XSKJVPLOEBJLUZ3YYUIIJRHDWSMLFCBU7ZOPMSM22UHZERFCGKWLHJWPLRYYU5JXNEESA5A6VJC5USXRFMAWAF4LY3LXNQ7WD6DVSBJWPCN7GVALQG6OW7CZPX4HPOHWZZTDT2EUACU34VZ336Y5O5PAXPPBKAAC4LL7TOEVRPK36GLKT4SBFLOJPW4I2QOQ6JH2CJCPSIHKD5C7EF7AFAAONDFEJIJR52EJBJMI5HGDZB4GV5FW7MS4VYSXPLUVRKGOZFQHZ4TDCLFJGYDQW7N6UFDHUVGYFUVYX3ANQQD3X2W4TJMJM7MTO3M2RSX46NQGOSEONSLJXA/JZO6IRWEJSYBLL6JAUTAJXNJHG.<unknown>(Unknown Source)
+
+!ENTRY com.yattasolutions.umllab 2 0 2015-07-04 22:33:57.430
+!MESSAGE Unable to configure UML constraint validation
+!STACK 0
+java.lang.ClassNotFoundException: Unable to load synthetic subclass of com.yattasolutions.umllab.validation.f
+	at com.yattasolutions.umllab.validation.a.R(SourceFile:123)
+	at com.yattasolutions.umllab.validation.f.<clinit>(SourceFile:40)
+	at com.yattasolutions.obf.op.a.earlyStartup(SourceFile:17)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:89)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$56.run(Workbench.java:2755)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.UnsupportedClassVersionError: com/yattasolutions/umllab/validation/f__Gen_Configurable has been compiled by a more recent version of the Java Runtime (class file version 0.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.yattasolutions.umllab.validation.a$1.ads(SourceFile:109)
+	at com.yattasolutions.umllab.validation.a$1.findClass(SourceFile:91)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.yattasolutions.umllab.validation.a.R(SourceFile:119)
+	... 7 more
+
+!ENTRY com.yattasolutions.umllab 4 0 2015-07-04 22:34:03.824
+!MESSAGE UML Lab internal error: Error acquiring license.
+!STACK 0
+java.lang.NullPointerException
+	at com.yattasolutions.obf.ms.g.a(SourceFile:585)
+	at OMGSGI44W3L7GGN3HBC2P3HOAPK4INAGKANN6Z4GL3ESMOKB2SEO32P4OMCM3SKRMXBXK5HFFZWBEM5V2Q334QAC7RLO7GV5HY4DRYHOUZ3JOBK6FEHRYX6VJ4PZYI22ZWJ7RIQ3VEIFOA7QU3XTOGW6EET72HDD6YWAJEXNWN5ZNES56ER6BAOBHH7OTE3THVTCI7FSY2BRKS56LTTCBW3UE66CWFU6B4P6RVZ2SUU2MRORIAE2Y4VNQAJQIMYXMYU6RV6K3H252AZMG3UMU6FOI7KEDWXQ4W4LACQ5GBVFYAGPMPMCSLXHQLT5E3MNKHTX2KIBDM4ZBG6FLUCXSD7W36D32TD2DII6HWVZABYVBPV5C5LZ3VLOQ7VDNHV47R3DSRRDKGSWI5WEYRKOP5EY37EGAJ2FGNNLA7PATI24EI35X7YPHSFESTAWA2MOEOEBVTPMFDVIVVUWKXUP5F25ZQF3HXNS3SQQUFH76UJSKDB7JOQ44ATP7WDUSY3Y2BVNUACTER4R5DNQOAXT5FA23VQHRY7CNWF62ZSAXJIQ6ZRHHBGV6D6CHEQ67HJ5LY72OCYLGDYCRSOS3BTM23SPCMENPKANTX7XS4BLUYTDLEIO3JWQBLBDDFINPVDGVJ6C55WLUROHAMXPIWDWJGIFPNZO5DYCX5DBVUNR5645MYRZNEGI5J5FZG4SGBMHDBPI57SMDHIVIXHU2ZY3LLP6YVTDCTE2ULLH73D2UXQJ4K33ECAXTWOJMZMWENSZY7FAQBF2Z2BDJAAENJTHQKSOS35WUT2VM4E2KDI4CDCRPJY5CUV4XJOFGQC76IVNEMTNJAAGYYPQ6EISWSFE3VX74QEL56ODJSKEPEZVYVQ7BYHTXKGLGG5BQ4ZS7EI2HQYN3YY7CER6GYCXZJ5B2LVFFLYNVG4U3Q5HUVOP5DZGQQU4AKH52OI2YBPSAQK5VTMTHTBAV2YLAAICNIRVZKFN25XCZYWFWGSMT2OJLRCAFSCT3OQSITS6FTKGL6ZR4DVJEPMU5FGA6MN4KTDT4Y3FEJBNKHKE3EUSNPQLFYKRWRDM6B6QYSVJ7ACT7AQXGEMWA52DL5WTC/7IC53F5IEFXLJZ5SNTPKMEZ6VA.<unknown>(Unknown Source)
+
+!ENTRY org.eclipse.ui 4 0 2015-07-04 22:34:03.828
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:139)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4147)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+Caused by: java.lang.NullPointerException
+	at com.yattasolutions.obf.ms.g.a(SourceFile:585)
+	at com.yattasolutions.obf.ms.g.a(SourceFile:504)
+	at com.yattasolutions.obf.ms.g.a(SourceFile:604)
+	at com.yattasolutions.obf.ms.g.a(SourceFile:352)
+	at com.yattasolutions.obf.od.b$1.run(SourceFile:50)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+	... 23 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-07-04 22:35:08.751
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-07-04 22:35:08.819
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\hp'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
