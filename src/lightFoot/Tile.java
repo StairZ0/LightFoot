@@ -8,8 +8,14 @@ public class Tile extends JPanel {
 	
 	private JPanel content;
 	
-	public void addPanel(JPanel panel) {
-		this.add(panel);
+	public boolean addPanel(JPanel panel) {
+		if(!isEmpty()) return false;
+		else {
+			content = panel;
+			this.add(content);
+			return true;
+		}
+		
 	}
 	public boolean contain(Pixel pixel) {
 		Rectangle bounds = this.getBounds();
