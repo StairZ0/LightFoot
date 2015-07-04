@@ -19,13 +19,22 @@ public class DraggablePanel extends JPanel {
 		nTile = 0;
 	}
 	
+	
+	
 	public boolean isFull(){
 		return !(nTile < nMaxTile);
 	}
 	
 	
-	public void addPanel(JPanel panel){
-		nTile++;
+	public boolean addPanel(JPanel panel){
+		if(isFull()){
+			return false;
+		}
+		else{
+			
+			nTile++;
+			return true;
+		}
 	}
 	
 	
