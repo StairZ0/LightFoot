@@ -7,7 +7,9 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class ContainerPanel extends JLayeredPane {
+import utils.LayeredPane;
+
+public class ContainerPanel extends LayeredPane {
 	
 	private DraggablePanel draggablePanel;
 	private TransparentPanel transparentPanel;

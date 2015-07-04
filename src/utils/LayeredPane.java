@@ -1,5 +1,7 @@
 package utils;
 
+import java.awt.Component;
+
 import javax.swing.JComponent;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -7,9 +9,10 @@ import javax.swing.JPanel;
 public class LayeredPane extends JLayeredPane{
 	
 	@Override
-	public void add(Component component)
+	public Component add(Component component,int layer)
 	{
-		
+		component.setBounds(0, 0, this.getWidth(), this.getHeight());
+		return super.add(component,layer);
 	}
 
 }
