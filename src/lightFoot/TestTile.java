@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -22,10 +23,12 @@ public class TestTile {
 		principal.setVisible(true);
 		principal.setContentPane(panelPrincipal);
 		Tile tile = new Tile();
-	
-		tile.setSize(50, 50);
-		Pixel pixel = new Pixel(150, 150);
+		tile.add(new JButton("t"));
+		panelPrincipal.add(tile,"w 50,h 50");
+		principal.pack();
+		Pixel pixel = new Pixel(56, 56);
 		System.out.println(tile.contain(pixel));
+		
 		
 	}
 
