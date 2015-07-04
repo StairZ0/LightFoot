@@ -1,7 +1,7 @@
+package lightFoot;
+
 import javax.swing.JPanel;
 
-
-package lightFoot;
 
 public class TransparentPanel extends JPanel {
 	
@@ -9,11 +9,11 @@ public class TransparentPanel extends JPanel {
 		
 	}
 
-	private void receive(JPanel panel, Pixel pixel){
+	public void receive(JPanel panel, Pixel pixel){
 		
 	}
 	
-	private void fireDragEvent(){
+	public void fireDragEvent(){
 		
 	}
 }
