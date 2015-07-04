@@ -2,12 +2,15 @@ package lightFoot;
 
 import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.JPanel;
 
-
+/**
+ * Le JPanel transparent sur lequel les JPanels vont glisser
+ * @author de le He
+ *
+ */
 public class TransparentPanel extends JPanel {
-	
+
 	private ContainerPanel container;
 	
 	private JPanel current;
