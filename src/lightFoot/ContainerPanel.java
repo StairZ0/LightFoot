@@ -10,17 +10,31 @@ import javax.swing.JPanel;
 import utils.Index2D;
 import utils.LayeredPane;
 
+/**
+ * 
+ * @author Alan
+ *
+ */
 public class ContainerPanel extends LayeredPane {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private DraggablePanel draggablePanel;
 	private TransparentPanel transparentPanel;
 	private EventHandler eventHandler;
 	private Pixel lastPixelPosition;
 	private int width;
 	private int height;
+	private boolean isDragging = false;
 
 	
-	
+	/**
+	 * Create a grid layout with the given dimension.
+	 * @param width
+	 * @param height
+	 */
 	public ContainerPanel(int width,int height)
 	{
 		this.width=width;
@@ -33,6 +47,14 @@ public class ContainerPanel extends LayeredPane {
 		transparentPanel.addMouseListener(eventHandler);
 		transparentPanel.addMouseMotionListener(eventHandler);
 	}
+	/**
+	 * Add given panel to given index.
+	 * @param panel
+	 * @param x
+	 * @param y
+	 * @return  <b>true</b> if panel was successfully added.<br>
+	 * 		   <b>false</b> if there's already a panel at the given index. 
+	 */
 	public boolean addPanel(JPanel panel,int x,int y)
 	{
 		if(x >= width ||y >= height)
@@ -44,6 +66,12 @@ public class ContainerPanel extends LayeredPane {
 			return draggablePanel.addPanel(panel,new Index2D(x,y));
 		}
 	}
+	/**
+	 * Add given panel to the first empty tile it encounters.
+	 * @param panel
+	 * @return  <b>true</b> if panel was successfully added.<br>
+	 * 		   <b>false</b> if grid is already full. 
+	 */
 	public boolean addPanel(JPanel panel)
 	{
 		return draggablePanel.addPanel(panel);
@@ -71,6 +99,7 @@ public class ContainerPanel extends LayeredPane {
 	{
 
 		public void mouseDragged(MouseEvent e) {
+			if(isDragging)
 			transparentPanel.fireDragEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
@@ -96,11 +125,13 @@ public class ContainerPanel extends LayeredPane {
 		}
 
 		public void mousePressed(MouseEvent e) {
+			isDragging = true;
 			draggablePanel.fireMousePressedEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
 
 		public void mouseReleased(MouseEvent e) {
+			isDragging = false;
 			transparentPanel.fireMouseReleaseEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
