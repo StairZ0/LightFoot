@@ -15,7 +15,13 @@ public class TransparentPanel extends JPanel {
 		container = this.container;
 		setOpaque(false);
 	}
-
+	
+	/**
+	 * Copie le JPanel à glisser dans le TransparentPanel
+	 * 
+	 * @param panel JPanel à faire glisser
+	 * @param pixel localisation initiale de panel
+	 */
 	public void receive(JPanel panel, Pixel pixel){
 		Dimension size = panel.getSize();
 		current = panel;
@@ -25,16 +31,28 @@ public class TransparentPanel extends JPanel {
 		
 	}
 	
+	
+	/**
+	 * Repaint le panel current dans TransparentPanel pendant le drag
+	 * 
+	 * @param pixel localisation actuelle de la souris
+	 */	
 	public void fireDragEvent(Pixel pixel){
 		current.setLocation(pixel.getX(), pixel.getY());
 		repaint();
 	}
 	
+	/**
+	 * Remove le panel current du TransparentPanel après la fin du drag
+	 * et envoie le JPanel current et pixel au ContainerPanel
+	 * 
+	 * @param pixel localisation finale de la souris après le drag
+	 */	
 	public void fireMouseReleaseEvent(Pixel pixel){
 		remove(current);
 		container.sendToDraggablePanel(current, pixel);
 		revalidate();
 		// container.remove(pixel); container.add(current); conbtainer.repaint();
-		repaint();
+		repaint(); //container.repaint => container.repaint & this.repaint ???
 	}
 }
