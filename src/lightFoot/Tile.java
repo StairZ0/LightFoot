@@ -8,6 +8,7 @@ public class Tile extends JPanel {
 	
 	private JPanel content;
 	
+	
 	public boolean contain(Pixel pixel) {
 		Rectangle bounds = this.getBounds();
 		return bounds.contains(pixel.getX(), pixel.getY());
