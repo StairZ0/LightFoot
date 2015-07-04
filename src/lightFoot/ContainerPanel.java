@@ -4,9 +4,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class ContainerPanel extends JPanel {
+public class ContainerPanel extends JLayeredPane {
 	
 	private DraggablePanel draggablePanel;
 	private TransparentPanel transparentPanel;
