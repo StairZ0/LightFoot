@@ -34,6 +34,10 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	public boolean addPanel(JPanel panel){
+		return false;
+	}
+	
+	public void fireMousePressedEvent(Pixel pixel){
 		
 	}
 	
