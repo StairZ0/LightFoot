@@ -1,7 +1,5 @@
+package lightFoot; 
 import javax.swing.JPanel;
-
-
-package lightFoot;
 
 public class TransparentPanel extends JPanel {
 	
