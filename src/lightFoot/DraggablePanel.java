@@ -13,7 +13,7 @@ public class DraggablePanel extends JPanel {
 	
 	public DraggablePanel(int width, int height){
 		
-		setLayout(new GridLayout(width, height));
+		setLayout(new MigLayout("wrap "+width));
 		hashTile = new HashMap<Pixel, Tile>();
 		nMaxTile = width*height;
 		nTile = 0;
@@ -26,16 +26,18 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	
-	public boolean addPanel(JPanel panel){
+	public boolean addPanel(JPanel panel, int x, int y){
 		if(isFull()){
 			return false;
 		}
 		else{
-			
+			add(panel, " cell "+ x + " " + y);
 			nTile++;
 			return true;
 		}
 	}
+	
+	
 	
 	
 	
