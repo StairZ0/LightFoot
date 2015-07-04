@@ -1,5 +1,6 @@
 package lightFoot;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -28,6 +29,7 @@ public class TransparentPanel extends JPanel {
 		add(current);
 		current.setLocation(pixel.getX(), pixel.getY());
 		current.setSize(size);
+		current.setBackground(new Color(0,0,0,64)); //Je grise mon Panel pour les distinguer
 		
 	}
 	
