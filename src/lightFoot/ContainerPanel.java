@@ -17,20 +17,25 @@ public class ContainerPanel extends LayeredPane {
 	
 	public ContainerPanel(int width,int height)
 	{
-		
+		draggablePanel = new DraggablePanel(this,width,height);
+		transparentPanel = new TransparentPanel(this);
+		add(draggablePanel,JLayeredPane.DEFAULT_LAYER);
+		add(transparentPanel,JLayeredPane.DRAG_LAYER);
 	}
-	private void sendToTransparentPanel(JPanel panel,Pixel pixel )
+	
+	
+	
+	
+	
+	
+	protected void sendToTransparentPanel(JPanel panel,Pixel pixel )
 	{
-		
+		transparentPanel.receive(panel, pixel);
 	}
-	private void sendToDraggablePanel(JPanel panel,Pixel pixel)
+	protected void sendToDraggablePanel(JPanel panel,Pixel pixel)
 	{
-		
+		draggablePanel.receive(panel, pixel);
 	}
-	
-	
-	
-	
 	
 	
 	class EventHandler implements MouseListener,MouseMotionListener
@@ -61,8 +66,8 @@ public class ContainerPanel extends LayeredPane {
 			
 		}
 
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
+		public void mousePressed(MouseEvent e) {
+			draggablePanel.fireMousePressedEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
 
