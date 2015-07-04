@@ -15,8 +15,10 @@ public class ContainerPanel extends LayeredPane {
 	private DraggablePanel draggablePanel;
 	private TransparentPanel transparentPanel;
 	private EventHandler eventHandler;
+	private Pixel lastPixelPosition;
 	private int width;
 	private int height;
+
 	
 	
 	public ContainerPanel(int width,int height)
@@ -52,11 +54,16 @@ public class ContainerPanel extends LayeredPane {
 	
 	protected void sendToTransparentPanel(JPanel panel,Pixel pixel )
 	{
+		lastPixelPosition = pixel;
 		transparentPanel.receive(panel, pixel);
 	}
 	protected void sendToDraggablePanel(JPanel panel,Pixel pixel)
 	{
 		draggablePanel.receive(panel, pixel);
+	}
+	protected Pixel getLastPixelPosition()
+	{
+		return lastPixelPosition;
 	}
 	
 	
