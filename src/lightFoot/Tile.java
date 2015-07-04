@@ -1,5 +1,28 @@
 package lightFoot;
 
-public class Tile {
+import java.awt.Rectangle;
+
+import javax.swing.JPanel;
+
+public class Tile extends JPanel {
+	
+	private JPanel content;
+	
+	public boolean contain(Pixel pixel) {
+		Rectangle bounds = this.getBounds();
+		return bounds.contains(pixel.getX(), pixel.getY());
+	}
+	
+	public boolean isEmpty() {
+		return content == null;
+	}
+
+	public void setContent(JPanel content) {
+		this.content = content;
+	}
+	
+	public JPanel getContent() {
+		return content;
+	}
 
 }
