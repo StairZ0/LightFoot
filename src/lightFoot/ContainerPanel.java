@@ -81,18 +81,31 @@ public class ContainerPanel extends LayeredPane {
 	
 	
 	
-	
+	/**
+	 * Send selected panel to transparent panel for Dragging.
+	 * @param panel
+	 * @param pixel The location of the selected panel.
+	 */
 	protected void sendToTransparentPanel(JPanel panel,Pixel pixel )
 	{
 		lastPixelPosition = pixel;
 		transparentPanel.receive(panel, pixel);
 		isDragging = true;
 	}
+	/**
+	 * Send dragged panel to Draggable panel for dropping.
+	 * @param panel
+	 * @param pixel 
+	 */
 	protected void sendToDraggablePanel(JPanel panel,Pixel pixel)
 	{
 		draggablePanel.receive(panel, pixel);
 		isDragging = false;
 	}
+	/**
+	 * Return the position of the last panel sent to transparent panel.
+	 * @return
+	 */
 	protected Pixel getLastPixelPosition()
 	{
 		return lastPixelPosition;
