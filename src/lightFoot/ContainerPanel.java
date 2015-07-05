@@ -42,8 +42,9 @@ public class ContainerPanel extends LayeredPane {
 		draggablePanel = new DraggablePanel(this,width,height);
 		transparentPanel = new TransparentPanel(this);
 		eventHandler = new EventHandler();
-		add(draggablePanel,JLayeredPane.DEFAULT_LAYER);
-		add(transparentPanel,JLayeredPane.DRAG_LAYER);
+		
+		add(draggablePanel,JLayeredPane.FRAME_CONTENT_LAYER);
+		add(transparentPanel,JLayeredPane.POPUP_LAYER);
 		transparentPanel.addMouseListener(eventHandler);
 		transparentPanel.addMouseMotionListener(eventHandler);
 	}

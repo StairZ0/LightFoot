@@ -1,6 +1,7 @@
 package utils;
 
 import java.awt.Component;
+import java.awt.Rectangle;
 
 import javax.swing.JComponent;
 import javax.swing.JLayeredPane;
@@ -10,11 +11,9 @@ import lightFoot.ContainerPanel;
 
 public class LayeredPane extends JLayeredPane{
 	
-	@Override
-	public Component add(Component component,int layer)
+	public LayeredPane()
 	{
-		component.setBounds(0, 0, this.getWidth(), this.getHeight());
-		return super.add(component,layer);
+		this.setLayout(new LayeredPaneLayout(this));
 	}
 
 }
