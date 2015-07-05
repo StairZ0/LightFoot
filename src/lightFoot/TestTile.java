@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import utils.Index2D;
 import net.miginfocom.swing.MigLayout;
 
 public class TestTile {
@@ -22,12 +23,15 @@ public class TestTile {
 		principal.setSize(500, 500);
 		principal.setVisible(true);
 		principal.setContentPane(panelPrincipal);
-		Tile tile = new Tile();
-		tile.add(new JButton("t"));
-		panelPrincipal.add(tile,"w 50,h 50");
+		Tile t = new Tile(new Index2D(1,1));
+		JButton b = new JButton("test");
+		JPanel p = new JPanel();
+		p.add(b);
+		t.addPanel(p);
+		panelPrincipal.add(t,"w 50,h 50");
 		principal.pack();
 		Pixel pixel = new Pixel(56, 56);
-		System.out.println(tile.contain(pixel));
+		System.out.println(t.contains(pixel));
 		
 		
 	}
