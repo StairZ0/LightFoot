@@ -19,6 +19,7 @@ public class DraggablePanel extends JPanel {
 	public DraggablePanel(ContainerPanel cPane, int width, int height){
 		
 		setLayout(new MigLayout("wrap "+width));
+		
 		hashTile = new HashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
 		nMaxTile = width*height;
@@ -26,6 +27,19 @@ public class DraggablePanel extends JPanel {
 		contPane = cPane;
 		this.width = width;
 		this.height = height;
+	}
+	
+	public DraggablePanel(int width, int height){
+
+		setLayout(new MigLayout("wrap "+width));
+		hashTile = new HashMap<Index2D, Tile>();
+		initializeHashTile(width,height);
+		nMaxTile = width*height;
+		nTileFilled = 0;
+		this.width = width;
+		this.height = height;
+		System.out.println("done " + hashTile.size());
+		
 	}
 	
 	
@@ -61,8 +75,10 @@ public class DraggablePanel extends JPanel {
 
 
 /**
- * 
+ * Public Method : fireMousePressedEvent
  * @param pixel
+ * Send panel from the clicked tile by converting pixel location
+ * remove panel from tile
  */
 	public void fireMousePressedEvent(Pixel pixel){
 		Tile t = pixelToTile(pixel);
@@ -73,10 +89,11 @@ public class DraggablePanel extends JPanel {
 		}
 	}
 /**
- * 
+ * Public Method : addPanel
  * @param panel
- * @param Index2D ij
+ * @param ij
  * @return JPanel panel
+ * 
  */
 	
 	public boolean addPanel(JPanel panel, Index2D ij){
@@ -84,6 +101,7 @@ public class DraggablePanel extends JPanel {
 			return false;
 		}
 		hashTile.get(ij).addPanel(panel);
+		
 		nTileFilled++;
 		return true;
 	}
@@ -106,7 +124,7 @@ public class DraggablePanel extends JPanel {
 	
 /**
  * Private Method : pixelToTile
- * @param Pixel pixel
+ * @param pixel
  * @return Tile
  * Check in which tile the click has been done
  * return the tile if there's a panel in it.
@@ -121,10 +139,10 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	private void initializeHashTile(int width, int height){
-		Index2D ij = new Index2D(0,0);
+	
 		for(int i = 0; i < height ; i++){
 			for(int j = 0; j < width; j++){
-				ij.setIJ(i, j);
+				Index2D ij = new Index2D(i,j);
 				hashTile.put(ij,new Tile(ij));
 			}
 		}
