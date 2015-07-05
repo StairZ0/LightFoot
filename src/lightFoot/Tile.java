@@ -80,5 +80,9 @@ public class Tile extends JPanel {
 	public Index2D getIndex() {
 		return index;
 	}
+	
+	public String toString() {
+		return Index2D.toString();
+	}
 
 }
