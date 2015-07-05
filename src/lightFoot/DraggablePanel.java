@@ -58,7 +58,12 @@ public class DraggablePanel extends JPanel {
 			return true;
 		}
 	}
-	
+
+
+/**
+ * 
+ * @param pixel
+ */
 	public void fireMousePressedEvent(Pixel pixel){
 		Tile t = pixelToTile(pixel);
 		if(!t.isEmpty()){
@@ -67,7 +72,12 @@ public class DraggablePanel extends JPanel {
 			nTileFilled--;
 		}
 	}
-	
+/**
+ * 
+ * @param panel
+ * @param Index2D ij
+ * @return JPanel panel
+ */
 	
 	public boolean addPanel(JPanel panel, Index2D ij){
 		if(!hashTile.get(ij).isEmpty()){
@@ -80,7 +90,7 @@ public class DraggablePanel extends JPanel {
 	
 /**
  * Private Method : firstTileFillable()
- * @return Tile
+ * @return Tile t
  * return the first tile which can filled
  */
 	
@@ -96,14 +106,14 @@ public class DraggablePanel extends JPanel {
 	
 /**
  * Private Method : pixelToTile
- * @param pixel
+ * @param Pixel pixel
  * @return Tile
  * Check in which tile the click has been done
  * return the tile if there's a panel in it.
  */
 	private Tile pixelToTile(Pixel pixel){
 		for(Tile t : hashTile.values()){
-			if(t.contain(pixel)){
+			if(t.contains(pixel)){
 				return t;
 			}
 		}
