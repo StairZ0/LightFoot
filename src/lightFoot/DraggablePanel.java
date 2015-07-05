@@ -1,6 +1,5 @@
 package lightFoot;
-import java.awt.GridLayout;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import javax.swing.JPanel;
 
@@ -11,21 +10,34 @@ import net.miginfocom.swing.MigLayout;
 public class DraggablePanel extends JPanel {
 	
 	
-	private HashMap<Index2D, Tile> hashTile;
+	private LinkedHashMap<Index2D, Tile> hashTile;
 	private int nMaxTile;
 	private int nTileFilled;
 	private ContainerPanel contPane;
 	private int width, height;
 	public DraggablePanel(ContainerPanel cPane, int width, int height){
 		
-		setLayout(new MigLayout("wrap "+width));
-		hashTile = new HashMap<Index2D, Tile>();
+		setLayout(new MigLayout("h 100%, w 100%, wrap "+width));
+		
+		hashTile = new LinkedHashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
 		nMaxTile = width*height;
 		nTileFilled = 0;
 		contPane = cPane;
 		this.width = width;
 		this.height = height;
+	}
+	
+	public DraggablePanel(int width, int height){
+
+		setLayout(new MigLayout("wrap "+width));
+		hashTile = new LinkedHashMap<Index2D, Tile>();
+		initializeHashTile(width,height);
+		nMaxTile = width*height;
+		nTileFilled = 0;
+		this.width = width;
+		this.height = height;
+		
 	}
 	
 	
@@ -61,8 +73,10 @@ public class DraggablePanel extends JPanel {
 
 
 /**
- * 
+ * Public Method : fireMousePressedEvent
  * @param pixel
+ * Send panel from the clicked tile by converting pixel location
+ * remove panel from tile
  */
 	public void fireMousePressedEvent(Pixel pixel){
 		Tile t = pixelToTile(pixel);
@@ -73,10 +87,11 @@ public class DraggablePanel extends JPanel {
 		}
 	}
 /**
- * 
+ * Public Method : addPanel
  * @param panel
- * @param Index2D ij
+ * @param ij
  * @return JPanel panel
+ * 
  */
 	
 	public boolean addPanel(JPanel panel, Index2D ij){
@@ -84,6 +99,7 @@ public class DraggablePanel extends JPanel {
 			return false;
 		}
 		hashTile.get(ij).addPanel(panel);
+		
 		nTileFilled++;
 		return true;
 	}
@@ -106,7 +122,7 @@ public class DraggablePanel extends JPanel {
 	
 /**
  * Private Method : pixelToTile
- * @param Pixel pixel
+ * @param pixel
  * @return Tile
  * Check in which tile the click has been done
  * return the tile if there's a panel in it.
@@ -121,11 +137,13 @@ public class DraggablePanel extends JPanel {
 	}
 	
 	private void initializeHashTile(int width, int height){
-		Index2D ij = new Index2D(0,0);
+	
 		for(int i = 0; i < height ; i++){
 			for(int j = 0; j < width; j++){
-				ij.setIJ(i, j);
-				hashTile.put(ij,new Tile(ij));
+				Index2D ij = new Index2D(i,j);
+				Tile t = new Tile(ij);
+				hashTile.put(ij,t);	
+				this.add(t, "h " + (int)100/height + "%,w "+ (int)100/width + "%,cell "+ j + " " + i);
 			}
 		}
 	}

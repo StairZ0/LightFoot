@@ -20,5 +20,9 @@ public class Index2D {
 		this.j = j;
 	}
 	
+	public String toString(){
+		return "[" + this.i + ", " + this.j + "]";
+	}
+	
 	
 }
