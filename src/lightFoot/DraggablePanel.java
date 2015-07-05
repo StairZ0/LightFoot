@@ -1,6 +1,5 @@
 package lightFoot;
-import java.awt.GridLayout;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import javax.swing.JPanel;
 
@@ -11,7 +10,7 @@ import net.miginfocom.swing.MigLayout;
 public class DraggablePanel extends JPanel {
 	
 	
-	private HashMap<Index2D, Tile> hashTile;
+	private LinkedHashMap<Index2D, Tile> hashTile;
 	private int nMaxTile;
 	private int nTileFilled;
 	private ContainerPanel contPane;
@@ -20,7 +19,7 @@ public class DraggablePanel extends JPanel {
 		
 		setLayout(new MigLayout("h 100%, w 100%, wrap "+width));
 		
-		hashTile = new HashMap<Index2D, Tile>();
+		hashTile = new LinkedHashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
 		nMaxTile = width*height;
 		nTileFilled = 0;
@@ -32,13 +31,12 @@ public class DraggablePanel extends JPanel {
 	public DraggablePanel(int width, int height){
 
 		setLayout(new MigLayout("wrap "+width));
-		hashTile = new HashMap<Index2D, Tile>();
+		hashTile = new LinkedHashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
 		nMaxTile = width*height;
 		nTileFilled = 0;
 		this.width = width;
 		this.height = height;
-		System.out.println("done \n" + hashTile.values().toString() + "\n" + hashTile.keySet().toString() + "\n");
 		
 	}
 	
@@ -67,8 +65,6 @@ public class DraggablePanel extends JPanel {
 		}
 		else{
 			Tile fill = firstTileFillable();
-			System.out.println(fill.getIndex().getI() + " " + fill.getIndex().getJ());
-			System.out.println(panel.getName());
 			fill.addPanel(panel);
 			nTileFilled++;
 			return true;
@@ -146,8 +142,8 @@ public class DraggablePanel extends JPanel {
 			for(int j = 0; j < width; j++){
 				Index2D ij = new Index2D(i,j);
 				Tile t = new Tile(ij);
-				hashTile.put(ij,t);
-				this.add(t, "cell "+ i + " " + j);
+				hashTile.put(ij,t);	
+				this.add(t, "h " + (int)100/height + "%,w "+ (int)100/width + "%,cell "+ j + " " + i);
 			}
 		}
 	}
