@@ -24,7 +24,7 @@ public class MainStairZ {
 					
 					frame.setContentPane(containerPanel);
 					
-					for(int i = 0;i<23;i++)
+					for(int i = 0;i<22;i++)
 					{
 						JPanel testPanel = new JPanel();
 						testPanel.add(new JButton("tes"));

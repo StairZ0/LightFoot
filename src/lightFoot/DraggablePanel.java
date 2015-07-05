@@ -1,10 +1,10 @@
 package lightFoot;
+import java.awt.GridLayout;
 import java.util.LinkedHashMap;
 
 import javax.swing.JPanel;
 
 import utils.Index2D;
-import net.miginfocom.swing.MigLayout;
 /**
  * 
  * @author Thomas
@@ -12,17 +12,17 @@ import net.miginfocom.swing.MigLayout;
  */
 
 public class DraggablePanel extends JPanel {
-	
-	
+
+
 	private LinkedHashMap<Index2D, Tile> hashTile;
 	private int nMaxTile;
 	private int nTileFilled;
 	private ContainerPanel contPane;
 	private int width, height;
 	public DraggablePanel(ContainerPanel cPane, int width, int height){
-		
-		setLayout(new MigLayout("insets 0 0 0 0 ,h 100%, w 100%, wrap "+width));
-		
+
+		setLayout(new GridLayout(width,height));
+
 		hashTile = new LinkedHashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
 		nMaxTile = width*height;
@@ -31,38 +31,31 @@ public class DraggablePanel extends JPanel {
 		this.width = width;
 		this.height = height;
 	}
-	
-	public DraggablePanel(int width, int height){
 
-		setLayout(new MigLayout("wrap "+width));
-		hashTile = new LinkedHashMap<Index2D, Tile>();
-		initializeHashTile(width,height);
-		nMaxTile = width*height;
-		nTileFilled = 0;
-		this.width = width;
-		this.height = height;
-		
-	}
-	
-	
-	
+
+
 	public boolean isFull(){
 		return !(nTileFilled < nMaxTile);
 	}
-	
+
 	public void receive(JPanel panel, Pixel pixel){
-		Tile t = pixelToTile(pixel);
-		if(t.isEmpty()){
-			t.addPanel(panel);
-			nTileFilled++;
-		}
-		else{
-			t = pixelToTile(contPane.getLastPixelPosition());
-			t.addPanel(panel);
-			nTileFilled++;
-		}
+
+			Tile t = pixelToTile(pixel);
+		
+			if(t != null && t.isEmpty()){
+				t.addPanel(panel);
+				nTileFilled++;
+			}
+			else{
+				
+				t = pixelToTile(contPane.getLastPixelPosition());
+				if(t != null){
+					t.addPanel(panel);
+					nTileFilled++;
+				}
+			}	
 	}
-	
+
 	public boolean addPanel(JPanel panel){
 		if(isFull()){
 			return false;	
@@ -76,44 +69,45 @@ public class DraggablePanel extends JPanel {
 	}
 
 
-/**
- * Public Method : fireMousePressedEvent
- * @param pixel
- * Send panel from the clicked tile by converting pixel location
- * remove panel from tile
- */
+	/**
+	 * Public Method : fireMousePressedEvent
+	 * @param pixel
+	 * Send panel from the clicked tile by converting pixel location
+	 * remove panel from tile
+	 */
 	public void fireMousePressedEvent(Pixel pixel){
 		Tile t = pixelToTile(pixel);
 		if(t != null && !t.isEmpty()){
 			contPane.sendToTransparentPanel(t.getContent(), new Pixel(t.getX(),t.getY()));
 			t.removePanel();
+			t.repaint();
 			nTileFilled--;
 		}
 	}
-/**
- * Public Method : addPanel
- * @param panel
- * @param ij
- * @return JPanel panel
- * 
- */
-	
+	/**
+	 * Public Method : addPanel
+	 * @param panel
+	 * @param ij
+	 * @return JPanel panel
+	 * 
+	 */
+
 	public boolean addPanel(JPanel panel, Index2D ij){
 		if(!hashTile.get(ij).isEmpty()){
 			return false;
 		}
 		hashTile.get(ij).addPanel(panel);
-		
+
 		nTileFilled++;
 		return true;
 	}
-	
-/**
- * Private Method : firstTileFillable()
- * @return Tile t
- * return the first tile which can filled
- */
-	
+
+	/**
+	 * Private Method : firstTileFillable()
+	 * @return Tile t
+	 * return the first tile which can filled
+	 */
+
 	private Tile firstTileFillable(){
 		for(Tile t : hashTile.values()){
 			if(t.isEmpty()){
@@ -122,35 +116,38 @@ public class DraggablePanel extends JPanel {
 		}
 		return null;
 	}
-	
-	
-/**
- * Private Method : pixelToTile
- * @param pixel
- * @return Tile
- * Check in which tile the click has been done
- * return the tile if there's a panel in it.
- */
+
+
+	/**
+	 * Private Method : pixelToTile
+	 * @param pixel
+	 * @return Tile
+	 * Check in which tile the click has been done
+	 * return the tile if there's a panel in it.
+	 * @throws Exception 
+	 */
 	private Tile pixelToTile(Pixel pixel){
+
 		for(Tile t : hashTile.values()){
 			if(t.contains(pixel)){
 				return t;
 			}
 		}
 		return null;
+		//throw new Exception();
 	}
-	
+
 	private void initializeHashTile(int width, int height){
-	
+
 		for(int i = 0; i < height ; i++){
 			for(int j = 0; j < width; j++){
 				Index2D ij = new Index2D(i,j);
 				Tile t = new Tile(ij);
 				hashTile.put(ij,t);	
-				this.add(t, "h " + (int)100/height + "%,w "+ (int)100/width + "%,cell "+ j + " " + i);
+				this.add(t);
 			}
 		}
 	}
-	
-	
+
+
 }

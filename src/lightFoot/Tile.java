@@ -1,9 +1,12 @@
 package lightFoot;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import net.miginfocom.swing.MigLayout;
 import utils.Index2D;
 
 public class Tile extends JPanel {
@@ -17,8 +20,11 @@ public class Tile extends JPanel {
 	 * @param index	: index de la tile dans la grille
 	 */
 	public Tile(JPanel content, Index2D index) {
+		this.setLayout(new MigLayout("insets 0 0 0 0"));
 		this.content = content;
 		this.index = index;
+		this.setBorder(BorderFactory.createLineBorder(Color.red));
+
 	}
 	
 	/**
@@ -26,8 +32,11 @@ public class Tile extends JPanel {
 	 * @param index : index de la tile dans la grille
 	 */
 	public Tile(Index2D index) {
+		this.setLayout(new MigLayout("insets 0 0 0 0"));
 		this.index = index;
 		this.content = null;
+		this.setBorder(BorderFactory.createLineBorder(Color.red));
+
 	}
 
 
@@ -40,7 +49,7 @@ public class Tile extends JPanel {
 		if(!isEmpty()) return false;
 		else {
 			content = panel;
-			this.add(content);
+			this.add(content,"h 100%, w 100%");
 			return true;
 		}
 
@@ -66,7 +75,6 @@ public class Tile extends JPanel {
 	
 	public void removePanel() {
 		this.remove(content);
-		this.revalidate();
 		content = null;
 	}
 
