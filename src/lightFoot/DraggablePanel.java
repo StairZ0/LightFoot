@@ -68,7 +68,7 @@ public class DraggablePanel extends JPanel {
 		Tile t = pixelToTile(pixel);
 		if(!t.isEmpty()){
 			contPane.sendToTransparentPanel(t.getContent(), pixel);
-			t.addPanel(null);
+			t.removeContent();
 			nTileFilled--;
 		}
 	}
