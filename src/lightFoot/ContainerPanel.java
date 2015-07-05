@@ -84,7 +84,6 @@ public class ContainerPanel extends LayeredPane {
 	
 	protected void sendToTransparentPanel(JPanel panel,Pixel pixel )
 	{
-		
 		lastPixelPosition = pixel;
 		transparentPanel.receive(panel, pixel);
 		isDragging = true;
@@ -135,7 +134,7 @@ public class ContainerPanel extends LayeredPane {
 		}
 
 		public void mouseReleased(MouseEvent e) {
-			
+			if(isDragging)
 			transparentPanel.fireMouseReleaseEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
