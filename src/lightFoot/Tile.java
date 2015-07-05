@@ -82,7 +82,8 @@ public class Tile extends JPanel {
 	}
 	
 	public String toString() {
-		return Index2D.toString();
+		String s = index.toString();
+		return s;
 	}
 
 }
