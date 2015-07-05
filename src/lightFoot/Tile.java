@@ -66,6 +66,7 @@ public class Tile extends JPanel {
 	
 	public void removePanel() {
 		this.remove(content);
+		this.revalidate();
 		content = null;
 	}
 
