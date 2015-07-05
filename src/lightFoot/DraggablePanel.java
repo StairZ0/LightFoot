@@ -5,7 +5,11 @@ import javax.swing.JPanel;
 
 import utils.Index2D;
 import net.miginfocom.swing.MigLayout;
-
+/**
+ * 
+ * @author Thomas
+ *
+ */
 
 public class DraggablePanel extends JPanel {
 	
