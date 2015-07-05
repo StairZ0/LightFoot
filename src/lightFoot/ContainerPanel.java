@@ -28,6 +28,7 @@ public class ContainerPanel extends LayeredPane {
 	private int width;
 	private int height;
 	private boolean isDragging = false;
+	private Pixel lastRealPixelPosition;
 
 	
 	/**
@@ -116,8 +117,10 @@ public class ContainerPanel extends LayeredPane {
 	{
 
 		public void mouseDragged(MouseEvent e) {
+			int x = -lastRealPixelPosition.getX()+e.getX();
+			int y = -lastRealPixelPosition.getY()+e.getY();
 			if(isDragging)
-			transparentPanel.fireDragEvent(new Pixel(e.getX(),e.getY()));
+			transparentPanel.fireDragEvent(new Pixel(x,y));
 			
 		}
 
@@ -142,6 +145,7 @@ public class ContainerPanel extends LayeredPane {
 		}
 
 		public void mousePressed(MouseEvent e) {
+			lastRealPixelPosition = new Pixel(e.getX(),e.getY());
 			draggablePanel.fireMousePressedEvent(new Pixel(e.getX(),e.getY()));
 			
 		}

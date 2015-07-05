@@ -17,6 +17,7 @@ public class TransparentPanel extends JPanel {
 	private ContainerPanel container;
 	
 	private JPanel current;
+	private Pixel firstLocation;
 	
 	public TransparentPanel (ContainerPanel container){
 		this.container=container;
@@ -33,6 +34,7 @@ public class TransparentPanel extends JPanel {
 		Dimension size = panel.getSize();
 		current = panel;
 		add(current);
+		firstLocation=new Pixel(pixel.getX(),pixel.getY());
 		current.setLocation(pixel.getX(), pixel.getY());
 		current.setSize(size);
 		//current.setBackground(new Color(0,0,0,64)); //Je grise mon Panel pour les distinguer
@@ -46,7 +48,7 @@ public class TransparentPanel extends JPanel {
 	 * @param pixel localisation actuelle de la souris
 	 */	
 	public void fireDragEvent(Pixel pixel){
-		current.setLocation(pixel.getX(), pixel.getY());
+		current.setLocation(firstLocation.getX()+pixel.getX(), firstLocation.getY()+pixel.getY());
 		repaint();
 	}
 	
