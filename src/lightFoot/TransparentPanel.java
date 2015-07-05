@@ -6,7 +6,10 @@ import javax.swing.JPanel;
 
 /**
  * Le JPanel transparent sur lequel les JPanels vont glisser
+ * 
  * @author de le He
+ * 
+ * @see ContainerPanel, Pixel
  *
  */
 public class TransparentPanel extends JPanel {
