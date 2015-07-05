@@ -63,6 +63,11 @@ public class Tile extends JPanel {
 	public boolean isEmpty() {
 		return content == null;
 	}
+	
+	public void removePanel() {
+		this.remove(content);
+		content = null;
+	}
 
 	public void setContent(JPanel content) {
 		this.content = content;
