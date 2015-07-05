@@ -1,9 +1,14 @@
 package lightFoot;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.LinkedHashMap;
 
 import javax.swing.JPanel;
 
+import net.miginfocom.swing.MigLayout;
+import aurelienribon.slidinglayout.SLAnimator;
+import aurelienribon.slidinglayout.SLConfig;
+import aurelienribon.slidinglayout.SLPanel;
 import utils.Index2D;
 /**
  * 
@@ -18,18 +23,27 @@ public class DraggablePanel extends JPanel {
 	private int nMaxTile;
 	private int nTileFilled;
 	private ContainerPanel contPane;
+	private SLPanel slPanel = new SLPanel();
 	private int width, height;
+	private SLConfig currentConfig;
 	public DraggablePanel(ContainerPanel cPane, int width, int height){
-
-		setLayout(new GridLayout(width,height));
-
-		hashTile = new LinkedHashMap<Index2D, Tile>();
-		initializeHashTile(width,height);
+		this.width = width;
+		this.height = height;
 		nMaxTile = width*height;
 		nTileFilled = 0;
 		contPane = cPane;
-		this.width = width;
-		this.height = height;
+		
+		
+		currentConfig = createConfig();
+		setLayout(new MigLayout("insets 0 0 0 0"));
+		hashTile = new LinkedHashMap<Index2D, Tile>();
+		initializeHashTile(width,height);
+		add(slPanel,"w 100%,h 100%");
+		slPanel.setVisible(true);
+		slPanel.initialize(currentConfig);
+		slPanel.setTweenManager(SLAnimator.createTweenManager());
+		setVisible(true);
+		setBackground(Color.black);
 	}
 
 
@@ -144,9 +158,23 @@ public class DraggablePanel extends JPanel {
 				Index2D ij = new Index2D(i,j);
 				Tile t = new Tile(ij);
 				hashTile.put(ij,t);	
-				this.add(t);
+				currentConfig.place(ij.getI(), ij.getJ(), t);
 			}
 		}
+	}
+	private SLConfig createConfig()
+	{
+		SLConfig newCfg = new SLConfig(slPanel);
+		newCfg.gap(5, 5);
+		for(int i = 0;i<height;i++)
+		{
+			newCfg.row(1f);
+		}
+		for(int j =0;j < width;j++)
+		{
+			newCfg.col(1f);
+		}
+		return newCfg;
 	}
 
 

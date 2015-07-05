@@ -12,6 +12,7 @@ import utils.Index2D;
 public class Tile extends JPanel {
 
 	private JPanel content;
+	private JPanel emptyContent;
 	private Index2D index;
 
 	/**
@@ -23,7 +24,7 @@ public class Tile extends JPanel {
 		this.setLayout(new MigLayout("insets 0 0 0 0"));
 		this.content = content;
 		this.index = index;
-		this.setBorder(BorderFactory.createLineBorder(Color.red));
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
 
 	}
 	
@@ -35,7 +36,10 @@ public class Tile extends JPanel {
 		this.setLayout(new MigLayout("insets 0 0 0 0"));
 		this.index = index;
 		this.content = null;
-		this.setBorder(BorderFactory.createLineBorder(Color.red));
+		this.emptyContent = new JPanel();
+		emptyContent.setBorder(BorderFactory.createLineBorder(Color.gray,4));
+		this.add(emptyContent,"w 100%,h 100%");
+		//this.setBorder(BorderFactory.createLineBorder(Color.red,10));
 
 	}
 
@@ -48,8 +52,11 @@ public class Tile extends JPanel {
 	public boolean addPanel(JPanel panel) {
 		if(!isEmpty()) return false;
 		else {
+			remove(emptyContent);
 			content = panel;
+			//content.setBorder(BorderFactory.createLineBorder(Color.red));
 			this.add(content,"h 100%, w 100%");
+			this.revalidate();
 			return true;
 		}
 
@@ -76,6 +83,9 @@ public class Tile extends JPanel {
 	public void removePanel() {
 		this.remove(content);
 		content = null;
+		this.add(emptyContent,"w 100%,h 100%");
+		
+		emptyContent.repaint();
 	}
 
 	public void setContent(JPanel content) {

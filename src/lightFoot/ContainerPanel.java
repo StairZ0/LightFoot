@@ -1,5 +1,6 @@
 package lightFoot;
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -47,8 +48,8 @@ public class ContainerPanel extends LayeredPane {
 		
 		add(draggablePanel,JLayeredPane.FRAME_CONTENT_LAYER);
 		add(transparentPanel,JLayeredPane.POPUP_LAYER);
-		transparentPanel.addMouseListener(eventHandler);
-		transparentPanel.addMouseMotionListener(eventHandler);
+		draggablePanel.addMouseListener(eventHandler);
+		draggablePanel.addMouseMotionListener(eventHandler);
 	}
 	/**
 	 * Add given panel to given index.
@@ -113,7 +114,7 @@ public class ContainerPanel extends LayeredPane {
 	}
 	
 	
-	class EventHandler implements MouseListener,MouseMotionListener
+	class EventHandler extends MouseAdapter implements MouseMotionListener
 	{
 
 		public void mouseDragged(MouseEvent e) {
@@ -121,26 +122,6 @@ public class ContainerPanel extends LayeredPane {
 			int y = -lastRealPixelPosition.getY()+e.getY();
 			if(isDragging)
 			transparentPanel.fireDragEvent(new Pixel(x,y));
-			
-		}
-
-		public void mouseMoved(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void mouseClicked(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 			
 		}
 
