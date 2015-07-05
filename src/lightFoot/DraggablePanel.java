@@ -18,7 +18,7 @@ public class DraggablePanel extends JPanel {
 	private int width, height;
 	public DraggablePanel(ContainerPanel cPane, int width, int height){
 		
-		setLayout(new MigLayout("wrap "+width));
+		setLayout(new MigLayout("h 100%, w 100%, wrap "+width));
 		
 		hashTile = new HashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
@@ -38,7 +38,7 @@ public class DraggablePanel extends JPanel {
 		nTileFilled = 0;
 		this.width = width;
 		this.height = height;
-		System.out.println("done \n" + hashTile.values() + "\n" + hashTile.keySet().toString() + "\n");
+		System.out.println("done \n" + hashTile.values().toString() + "\n" + hashTile.keySet().toString() + "\n");
 		
 	}
 	
@@ -68,6 +68,7 @@ public class DraggablePanel extends JPanel {
 		else{
 			Tile fill = firstTileFillable();
 			System.out.println(fill.getIndex().getI() + " " + fill.getIndex().getJ());
+			System.out.println(panel.getName());
 			fill.addPanel(panel);
 			nTileFilled++;
 			return true;
@@ -144,7 +145,9 @@ public class DraggablePanel extends JPanel {
 		for(int i = 0; i < height ; i++){
 			for(int j = 0; j < width; j++){
 				Index2D ij = new Index2D(i,j);
-				hashTile.put(ij,new Tile(ij));
+				Tile t = new Tile(ij);
+				hashTile.put(ij,t);
+				this.add(t, "cell "+ i + " " + j);
 			}
 		}
 	}
