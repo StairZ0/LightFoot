@@ -38,7 +38,7 @@ public class DraggablePanel extends JPanel {
 		nTileFilled = 0;
 		this.width = width;
 		this.height = height;
-		System.out.println("done " + hashTile.size());
+		System.out.println("done \n" + hashTile.values() + "\n" + hashTile.keySet().toString() + "\n");
 		
 	}
 	
@@ -67,6 +67,7 @@ public class DraggablePanel extends JPanel {
 		}
 		else{
 			Tile fill = firstTileFillable();
+			System.out.println(fill.getIndex().getI() + " " + fill.getIndex().getJ());
 			fill.addPanel(panel);
 			nTileFilled++;
 			return true;
