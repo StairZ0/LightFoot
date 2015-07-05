@@ -18,8 +18,8 @@ public class TransparentPanel extends JPanel {
 	
 	private JPanel current;
 	
-	TransparentPanel (ContainerPanel container){
-		container = this.container;
+	public TransparentPanel (ContainerPanel container){
+		this.container=container;
 		setOpaque(false);
 	}
 	
@@ -35,7 +35,7 @@ public class TransparentPanel extends JPanel {
 		add(current);
 		current.setLocation(pixel.getX(), pixel.getY());
 		current.setSize(size);
-		current.setBackground(new Color(0,0,0,64)); //Je grise mon Panel pour les distinguer
+		//current.setBackground(new Color(0,0,0,64)); //Je grise mon Panel pour les distinguer
 		
 	}
 	
@@ -57,8 +57,9 @@ public class TransparentPanel extends JPanel {
 	 * @param pixel localisation finale de la souris après le drag
 	 */	
 	public void fireMouseReleaseEvent(Pixel pixel){
-		remove(current);
+		
 		container.sendToDraggablePanel(current, pixel);
+		remove(current);
 		revalidate();
 		// container.remove(pixel); container.add(current); conbtainer.repaint();
 		repaint(); //container.repaint => container.repaint & this.repaint ???

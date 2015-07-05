@@ -37,6 +37,7 @@ public class ContainerPanel extends LayeredPane {
 	 */
 	public ContainerPanel(int width,int height)
 	{
+		super();
 		this.width=width;
 		this.height=height;
 		draggablePanel = new DraggablePanel(this,width,height);
