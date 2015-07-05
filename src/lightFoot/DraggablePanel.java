@@ -21,7 +21,7 @@ public class DraggablePanel extends JPanel {
 	private int width, height;
 	public DraggablePanel(ContainerPanel cPane, int width, int height){
 		
-		setLayout(new MigLayout("h 100%, w 100%, wrap "+width));
+		setLayout(new MigLayout("insets 0 0 0 0 ,h 100%, w 100%, wrap "+width));
 		
 		hashTile = new LinkedHashMap<Index2D, Tile>();
 		initializeHashTile(width,height);
@@ -85,7 +85,7 @@ public class DraggablePanel extends JPanel {
 	public void fireMousePressedEvent(Pixel pixel){
 		Tile t = pixelToTile(pixel);
 		if(!t.isEmpty()){
-			contPane.sendToTransparentPanel(t.getContent(), pixel);
+			contPane.sendToTransparentPanel(t.getContent(), t.getLocation());
 			t.removePanel();
 			nTileFilled--;
 		}
