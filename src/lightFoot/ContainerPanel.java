@@ -84,12 +84,15 @@ public class ContainerPanel extends LayeredPane {
 	
 	protected void sendToTransparentPanel(JPanel panel,Pixel pixel )
 	{
+		
 		lastPixelPosition = pixel;
 		transparentPanel.receive(panel, pixel);
+		isDragging = true;
 	}
 	protected void sendToDraggablePanel(JPanel panel,Pixel pixel)
 	{
 		draggablePanel.receive(panel, pixel);
+		isDragging = false;
 	}
 	protected Pixel getLastPixelPosition()
 	{
@@ -127,13 +130,12 @@ public class ContainerPanel extends LayeredPane {
 		}
 
 		public void mousePressed(MouseEvent e) {
-			isDragging = true;
 			draggablePanel.fireMousePressedEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
 
 		public void mouseReleased(MouseEvent e) {
-			isDragging = false;
+			
 			transparentPanel.fireMouseReleaseEvent(new Pixel(e.getX(),e.getY()));
 			
 		}
